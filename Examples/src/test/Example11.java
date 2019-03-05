@@ -20,3 +20,10 @@ public class Example11 {
 	}
 
 }
+/*Output:
+	1
+	22
+	333
+	4444
+	55555
+*/
