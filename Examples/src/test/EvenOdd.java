@@ -1,6 +1,7 @@
 package test;
 
 public class EvenOdd {
+	// to check if given two numbers are Odd or Even.
 
 	public static void main(String[] args) {
 		
@@ -12,13 +13,14 @@ public class EvenOdd {
 	
 	public boolean isEven(int a)	{
 		if (a%2==0)
-			return true
+			return true;
+		return false;
 	}
 	
 	public void show() {
 		
-		int a=4;
-		int b=19;
+		int a=230;
+		int b=1221;
 		//int c = a%b; // 19%2= 1 20%2=0 , 19%3=1 , 19%4=3, 4%19
 		
 		if (a==b)	{
@@ -30,14 +32,14 @@ public class EvenOdd {
 			}
 		}
 		else	{
-			if (isEven(a)) && isEven(b))
-				System.out.println("A & B are even"):
+			if (isEven(a) && isEven(b))
+				System.out.println("A & B are even");
 			else if(isEven(a))
 				System.out.println("A is even and B is odd");
 			else if(isEven(b))
 				System.out.println("A is odd and B is even");
 			else
-				System.out.println("A and B is odd");
+				System.out.println("A and B are odd");
 		}
 			
 		/*if(a>b && c%2==0) {
@@ -53,3 +55,4 @@ public class EvenOdd {
 	}
 
 }
+//Output: A is even and B is odd
