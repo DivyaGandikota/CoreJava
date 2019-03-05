@@ -2,6 +2,8 @@ package test;
 
 public class ArithmeticOps {
 	
+	// ADD,SUB,MUL,DIV,REM
+	
 	int a=15;
 	int b=20;
 	int c;
@@ -14,7 +16,7 @@ public class ArithmeticOps {
 		ops.difference();
 		ops.multiply();
 		ops.quotient();
-		ops.Remainder();
+		ops.remainder();
 		
 	}
 	public void sum() {
@@ -33,10 +35,16 @@ public class ArithmeticOps {
 		c=a/b; //15/20
 		System.out.println("Quotient is :"+c);
 	}
-	public void Remainder() {
-		c=b%a;  //20%15 = 5
+	public void remainder() {
+		c=a%b;  //20%15 = 5, 15%20=15
 		System.out.println("Remainder is :"+c);
 	}
-	
-
 }
+
+/*output:
+	Sum is :35
+	Difference is :5
+	Multiply is :300
+	Quotient is :0
+	Remainder is :15
+	*/
