@@ -4,15 +4,10 @@ public class PrintNames {
 	
 	public void display() {
 		
-		String[] name= {"Divya","A","B"};  //new String[10];  // 
-		
-		
-		
+		String[] name= {"Divya","A","B"};  
 		for(int i=0;i< name.length;i++) {
 			
 		//	name[i] = "Divya";
-			
-		
 			System.out.println(name[i]);
 			
 		}
@@ -28,13 +23,19 @@ public class PrintNames {
 	}
 
 }
+/*
+output:
+	
+	Divya
+	A
+	B
+*/
 
 
-//String[] name=new String[3];
 
+		//String[] name=new String[3];
 
-
-		//name= {"Divya","A","B"};
+		//name= {"Divya","A","B"}; --Doesn't work.
 		
 		/*name[0]="A";
 		name[1]="B";
