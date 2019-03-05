@@ -1,19 +1,18 @@
 package test;
 
 public class SwitchExample {
+	
+	//Print Days
 
 	public static void main(String[] args) {
 		
 		SwitchExample s=new SwitchExample();
-		
-		s.display();
+		s.display(2);
+		s.display(5);
 
 	}
-	public void display() {
-		
-		int i=3;
-		
-		if(i<7) {
+	public void display(int i) {
+	
 			switch(i) {
 				case 1: System.out.println("Sunday");
 				break;
@@ -29,11 +28,12 @@ public class SwitchExample {
 				break;
 				case 0:System.out.println("Saturday");
 				break;
-			}
-		}else {
-			System.out.println("Error!..Give Number less than 7");
-		}
-		
+				default:System.out.println("Error!!");
+		}	
 	}
-
 }
+
+/*output:
+	Monday
+	Thursday
+*/
