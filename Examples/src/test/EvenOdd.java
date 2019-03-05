@@ -9,15 +9,38 @@ public class EvenOdd {
 		eo.show();
 		
 	}
+	
+	public boolean isEven(int a)	{
+		if (a%2==0)
+			return true
+	}
+	
 	public void show() {
 		
 		int a=4;
 		int b=19;
-		int c = a%b; // 19%2= 1 20%2=0 , 19%3=1 , 19%4=3, 4%19
+		//int c = a%b; // 19%2= 1 20%2=0 , 19%3=1 , 19%4=3, 4%19
 		
-		
+		if (a==b)	{
+			if (isEven(a))	{
+				System.out.println("A & B are even");
+			}
+			else	{
+				System.out.println("A & B are odd");
+			}
+		}
+		else	{
+			if (isEven(a)) && isEven(b))
+				System.out.println("A & B are even"):
+			else if(isEven(a))
+				System.out.println("A is even and B is odd");
+			else if(isEven(b))
+				System.out.println("A is odd and B is even");
+			else
+				System.out.println("A and B is odd");
+		}
 			
-		if(a>b && c%2==0) {
+		/*if(a>b && c%2==0) {
 			System.out.println("A is Even");
 		}
 		else if(a>b && c%2==1){
@@ -26,7 +49,7 @@ public class EvenOdd {
 			System.out.println("A is Even");	
 		}else {
 			System.out.println("A is Odd");
-		}
+		}*/
 	}
 
 }
