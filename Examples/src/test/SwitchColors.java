@@ -1,20 +1,22 @@
 package test;
 
 public class SwitchColors {
+	
+	//Print Colors for Codes
 
 	public static void main(String[] args) {
 
 		SwitchColors s = new SwitchColors();
 		
-		s.display();
+		s.display(3);
+		s.display(0);
 		
 	}
 
-public void display() {
+public void display(int i) {
 		
-		int i=0;
-		
-		if(i>0 && i<8) {
+	//	int i=0;
+	//	if(i>0 && i<8) {
 			switch(i) {
 				case 1: System.out.println("Violet");
 				break;
@@ -30,10 +32,16 @@ public void display() {
 				break;
 				case 7:System.out.println("Red");
 				break;
+				default: System.out.println("Error");
 			}
-		}else {
+		/*}else {
 			System.out.println("Error!..Give Number less than 8");
 		}
-		
+		*/
 	}
 }
+
+/*output:
+	Blue
+	Error
+*/
