@@ -7,8 +7,6 @@ public class Star {
 		Star s=new Star();
 		
 		s.display();
-		
-
 	}
 	
 	public void display() {
@@ -20,9 +18,14 @@ public class Star {
 			}
 			System.out.println();
 		}
-			
-		
-			
 	}
 
 }
+
+/*output:
+	*
+	**
+	***
+	****
+	*****
+*/
