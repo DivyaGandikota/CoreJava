@@ -1,21 +1,25 @@
 package studentdetails;
 
+import java.util.ArrayList;
+
 public class Student {
 	
 	private String name;
 	private int age;
-	private int marks1;
-	private int marks2;
+	private ArrayList<Integer> markslist;
+	//private int marks2;
 
 	private Address address;
 	
 	private Curicculum curicculum;
 	
-	public Student(String name,int age, int marks1,int marks2) {
+	public Student(String name,int age, ArrayList<Integer> markslist) {
 		this.name=name;
 		this.age=age;
-		this.marks1=marks1;
-		this.marks2=marks2;
+		this.markslist=markslist;
+		/*this.marks1=marks1;
+		this.marks2=marks2;*/
+		
 	}
 	public String getName() {
 		return this.name;
@@ -29,18 +33,18 @@ public class Student {
 	public void setAge(int age) {
 		this.age=age;
 	}
-	public int getMarks1() {
-		return this.marks1;
+	public ArrayList<Integer> getMarksList() {
+	return this.markslist;
 	}
-	public void setMarks1(int marks1) {
-		this.marks1=marks1;
+	public void addMarks(Integer markslist) {
+		this.markslist.add(markslist);
 	}
-	public int getMarks2() {
+	/*public int getMarks2() {
 		return this.marks2;
 	}
 	public void setMarks2(int marks2) {
 		this.marks2=marks2;
-	}
+	}*/
 	public Address getAddress() {
 		return this.address;
 	}

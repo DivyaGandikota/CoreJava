@@ -1,24 +1,21 @@
 package studentdetails;
 
+import java.util.ArrayList;
+
 public class Curicculum {
 
-	private String subjectname1;
-	private String subjectname2;
+	private ArrayList<String> subjectnamelist= new ArrayList<String>();
+	//private String subjectname2;
 	private String facultyname;
 	private int maxmarks;
 	
-	public String getSubjectName1() {
-		return this.subjectname1;
+	public ArrayList<String> getSubjectNameList(){
+		return this.subjectnamelist;
 	}
-	public void setSubjectName1(String subjectname1) {
-		this.subjectname1=subjectname1;
+	public void addSubjectNameList(String subjectnamelist) {
+		this.subjectnamelist.add(subjectnamelist);
 	}
-	public String getSubjectName2() {
-		return this.subjectname2;
-	}
-	public void setSubjectName2(String subjectname2) {
-		this.subjectname2=subjectname2;
-	}
+	
 	public String getFacultyname() {
 		return this.facultyname;
 	}
