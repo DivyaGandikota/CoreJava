@@ -13,6 +13,13 @@ public class Student {
 	
 	private Curicculum curicculum;
 	
+	private Semester semester;
+	
+	public Student() {
+		this.name=name;
+		this.age=age;
+		this.markslist=markslist;
+	}
 	public Student(String name,int age, ArrayList<Integer> markslist) {
 		this.name=name;
 		this.age=age;
@@ -39,6 +46,9 @@ public class Student {
 	public void addMarks(Integer markslist) {
 		this.markslist.add(markslist);
 	}
+	public void setMarksList(ArrayList<Integer> markslist) {
+		this.markslist=markslist;
+	}
 	/*public int getMarks2() {
 		return this.marks2;
 	}
@@ -57,4 +67,13 @@ public class Student {
 	public void setCuricculum(Curicculum curicculum) {
 		this.curicculum=curicculum;
 	}
+	
+	//Semesters
+	public Semester getSemester() {
+		return this.semester;
+	}
+	public void setSemester(Semester semester) {
+		this.semester=semester;
+	}
+	
 }
