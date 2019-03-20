@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Curicculum {
 
 	private ArrayList<String> subjectnamelist= new ArrayList<String>();
-	//private String subjectname2;
 	private String facultyname;
 	private int maxmarks;
 	
@@ -15,7 +14,9 @@ public class Curicculum {
 	public void addSubjectNameList(String subjectnamelist) {
 		this.subjectnamelist.add(subjectnamelist);
 	}
-	
+	public void setSubjectNameList(ArrayList<String> subjectnamelist) {
+		this.subjectnamelist=subjectnamelist;
+	}
 	public String getFacultyname() {
 		return this.facultyname;
 	}
