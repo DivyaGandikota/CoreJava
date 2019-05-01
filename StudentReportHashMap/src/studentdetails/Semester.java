@@ -5,8 +5,7 @@ import java.util.ArrayList;
 public class Semester {
 	
 	private ArrayList<String> facultynamelist= new ArrayList<String>();
-//	private CurriculumSem curriculumsem;
-
+	private CurriculumSem curriculumsem;
 	private ArrayList<String> subjectcode;  //array list
 	
 	public ArrayList<String> getFacultyNameList(){
@@ -20,13 +19,13 @@ public class Semester {
 	public void addFacultyNameList(String facultynamelist) {
 		this.facultynamelist.add(facultynamelist);
 	}
-	/*
+	
 	public CurriculumSem getCurriculumSem() {
 		return this.curriculumsem;
 	}
 	public void setCurriculuSem(CurriculumSem curriculumsem) {
 		this.curriculumsem=curriculumsem;
-	}*/
+	}
 
 	public ArrayList<String> getSubjectcode() {
 		return subjectcode;

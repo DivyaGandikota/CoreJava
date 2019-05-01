@@ -6,52 +6,66 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Reportcard {
-	
-	Student s=new Student(); //,s1,s2;
+
+	Student s = new Student();
+	CurriculumSem curriculum = new CurriculumSem();
+	Semester sem = new Semester();
 	
 	public Student getStudent() {
 		return this.s;
 	}
+	
+
+	public CurriculumSem getCurriculumSem() {
+		return this.curriculum;
+	}
+
+	public Semester getSemester() {
+		return this.sem;
+	}
 
 	public void studDetails() {
-		
-		Calculator calc=new Calculator();
-		int total=0;
-		int percentage;
-		String name = s.getName();
-		int age = s.getAge();
-	//	String facultyname=s.getCuricculum().getFacultyname();
-	//	int maxmarks=s.getCuricculum().getMaxmarks();
-		System.out.println("Student details:");	
-		System.out.println("Name: " +name+ " Age: "+age);
-		System.out.println(s.getAddress().toString());
-		System.out.println("Subject" + "\t\t" + "MarksScored" + "\t" + "MaxMarks" +"\n" );
-			
-		/*for(int i=0;i<s.getCuricculum().getSubjectNameList().size();i++) {
-			System.out.println(s.getCuricculum().getSubjectNameList().get(i) + "\t\t" + s.getMarksList().get(i) + "\t\t" + maxmarks);
-			total = maxmarks+total;
-		}*/
-	//	ArrayList<String> x=s.getSemester().getCurriculumSem().getSubjectNameListCurriculum();
-		for(int i=0;i<s.getMarksList().size();i++) {
-			System.out.println(s.getSemester().getCurriculumSem().getSubjectNameListCurriculum().get(i)+ "\t\t" + s.getMarksList().get(i)+ "\t" +s.getSemester().getCurriculumSem().getMaxMarksList().get(i));
-			int maxi=+s.getSemester().getCurriculumSem().getMaxMarksList().get(i);
-			total=total+maxi;
-		}
+
+		Calculator calc = new Calculator();
+		int total = 0;
+		int percentage=0;
+		int sum=0;
+		System.out.println("Student details:");
+		System.out.println("Name: " + getStudent().getName() + " Age: " + getStudent().getAge());
+		System.out.println(getStudent().getAddress().toString());
 		System.out.println();
-		
-	//	total=calc.sum(s.getSemester().getCurriculumSem().getMaxMarksList());
-		System.out.println("Total" + "\t\t" + calc.sum(s.getMarksList()) + "\t\t" + total);
-		
-		percentage=calc.percentage(s.getMarksList(), total);			
-		System.out.println("Percentage" +"\t"+ percentage + "\t\t" + "100%" +"\n");
+		System.out.println(
+				"Subject Code" + "\t" + "MarksScored" + "\t" + "Faculty Name" + "\t Subject Name \t Maximum Marks");
+		for (int i = 0; i < getSemester().getSubjectcode().size(); i++) {
+			System.out.print(getSemester().getSubjectcode().get(i) + "\t\t" + getStudent().getMarksList().get(i) + "\t\t"
+					+ getSemester().getFacultyNameList().get(i) + "\t\t");
+
+			for (int j = 0; j < getCurriculumSem().getSubjectCodeListCurriculum().size(); j++) {
+				if (getSemester().getSubjectcode().get(i)
+						.equalsIgnoreCase(getCurriculumSem().getSubjectCodeListCurriculum().get(j))) {
+					System.out.println(getCurriculumSem().getSubjectNameListCurriculum().get(j) + "\t\t"
+							+ getCurriculumSem().getMaxMarksList().get(j));
+					int maxi = getCurriculumSem().getMaxMarksList().get(j);
+					total = total + maxi;
+					}
+			}
+			System.out.println();
+			
+		}
+		sum=calc.sum(getStudent().getMarksList()) ;	
+		System.out.println("Total Marks Obtained" + "\t\t" + sum + "\t\t" + total);
+
+		percentage = calc.percentage(getStudent().getMarksList(), total);
+		System.out.println("Percentage" + "\t\t" + percentage + "\t\t" + "100%");
 		grade(percentage);
+		
 		System.out.println("*********************************");
 		
-		
-		
 	}
-	public void setAddressForStudent(String houseNo,String streetname, String cityname, String statename, int zipcode) {
-		Address address=new Address();
+
+	public void setAddressForStudent(String houseNo, String streetname, String cityname, String statename,
+			int zipcode) {
+		Address address = new Address();
 		address.setHouseNo(houseNo);
 		address.setStreetName(streetname);
 		address.setCityName(cityname);
@@ -59,199 +73,137 @@ public class Reportcard {
 		address.setZipcode(zipcode);
 		s.setAddress(address);
 	}
-	
+
 	public void setStudentDetails(String name, int age, ArrayList<Integer> markslist) {
 		s.setName(name);
 		s.setAge(age);
 		s.setMarksList(markslist);
 	}
-	/*public void setCuricculumForStudent(ArrayList<String> subjectnamelist, String facultyname, int maxmarks) { //Not using Curiculum - new method CurriculumSem
-		Curicculum curicculum=new Curicculum();
-		curicculum.setSubjectNameList(subjectnamelist);
-		curicculum.setFacultyname(facultyname);
-		curicculum.setMaxmarks(maxmarks);
-		s.setCuricculum(curicculum);
-	}
-	*/
 
-	public void grade(int percentage) { 
-		
-		 	try {
-				if(percentage>= 80) {
-					System.out.println("Grade \t\t" + "A" + "\t\t" + "A");
-				}else if(percentage>=60 && percentage<80){
-					System.out.println("Grade \t\t" + "B" + "\t\t" + "A");
-				}else if(percentage>=40 && percentage<60) {
-					System.out.println("Grade \t\t" + "C" + "\t\t" + "A");
-				}else if(percentage<40) {
-					System.out.println("Grade \t\t" + "Fail" + "\t\t" + "A");
-				}else {
-					System.err.println("Error");
-				}
-			 	}
-			catch(Exception e) {
-				System.out.println("Error");
+	public void grade(int percentage) {
+
+		try {
+			if (percentage >= 80) {
+				System.out.println("Grade \t\t" + "A" + "\t\t" + "A");
+			} else if (percentage >= 60 && percentage < 80) {
+				System.out.println("Grade \t\t" + "B" + "\t\t" + "A");
+			} else if (percentage >= 40 && percentage < 60) {
+				System.out.println("Grade \t\t" + "C" + "\t\t" + "A");
+			} else if (percentage < 40) {
+				System.out.println("Grade \t\t" + "Fail" + "\t\t" + "A");
+			} else {
+				System.err.println("Error");
 			}
-	}
-	
-	//Subject Code and Name - Curriculum and Semester details.
-	
-	
-	public void setSemesterForStudent(ArrayList<String> subjectnamelistcurriculum, ArrayList<String> subjectcodelistcurriculum, ArrayList<String> facultynamelist, ArrayList<Integer> maxmarkslist) {
-		Semester sem=new Semester();
-		sem.setFacultyNameList(facultynamelist);
-		
-		CurriculumSem c=new CurriculumSem();
-		c.setSubjectNameListCurriculum(subjectnamelistcurriculum);
-		c.setSubjectCodeListCurriculum(subjectcodelistcurriculum);
-		c.setMaxMarksList(maxmarkslist);
-		sem.setCurriculuSem(c);
-		s.setSemester(sem);
-		System.out.println("Semester details: \nSubject Name \t Subject Code \t Faculty Name \t Maximum Marks \n");
-		for(int i=0;i<subjectnamelistcurriculum.size();i++) {
-			System.out.println(subjectnamelistcurriculum.get(i) +"\t\t"+ subjectcodelistcurriculum.get(i) + "\t\t"+ facultynamelist.get(i) + "\t" + maxmarkslist.get(i));
+		} catch (Exception e) {
+			System.out.println("Error");
 		}
 	}
-	
-	public static void main(String[] args) throws IOException {
-		
-		Reportcard report= new Reportcard();
-		
-		ArrayList<Student> studentlist=new ArrayList<Student>();
-		
-		//Taking Inputs from user
-		
-		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-		
-		//Enter Curriculum details
+
+	public void setCurriculumSemDetails() throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Enter Subject Names, Subject Codes and Max Marks:");
-		String subjectname="";
+		String subjectname = "";
 		ArrayList<String> subjectnamelistcurriculum = new ArrayList<String>();
 		ArrayList<String> subjectcodelistcurriculum = new ArrayList<String>();
 		ArrayList<Integer> maxmarkslist = new ArrayList<Integer>();
-		while(true) {
+		while (true) {
 			System.out.println("Enter Subject Names:");
-			subjectname=br.readLine();
-			if(subjectname.equals("stop")) 
+			subjectname = br.readLine();
+			if (subjectname.equals("stop"))
 				break;
-			subjectnamelistcurriculum.add(subjectname); 
+			subjectnamelistcurriculum.add(subjectname);
 			System.out.println("Enter Subject Code:");
-			subjectcodelistcurriculum.add(br.readLine()); //append to list.
-			
+			subjectcodelistcurriculum.add(br.readLine()); // append to list.
+
 			System.out.println("Enter Maximum Marks");
 			maxmarkslist.add(Integer.parseInt(br.readLine()));
 		}
+		curriculum.setSubjectNameListCurriculum(subjectnamelistcurriculum);
+		curriculum.setSubjectCodeListCurriculum(subjectcodelistcurriculum);
+		curriculum.setMaxMarksList(maxmarkslist);
 
-		Semester sem=new Semester();
-		sem.setSubjectcode(subjectcodelistcurriculum);
+	}
 
-		System.out.println("Enter subject Code to check if exists in list:");
-		String subjcode=br.readLine();
+	public void setSemester() throws IOException {
 
-		if(sem.getSubjectcode().contains(subjcode)){
-			System.out.println("Entered code" +subjcode+ " exists in curriculumsemlist \n");
-		}
-		
-		
-		System.out.println("Student Details:");
-		System.out.println("Enter Name");
-		String name=br.readLine();
-		System.out.println("Enter Age");
-		int age=Integer.parseInt(br.readLine());
-		System.out.println("Enter marks");
-		ArrayList<Integer> markslist = new ArrayList<Integer>();
-		int marks=0;
-		while(true) {
-			marks=Integer.parseInt(br.readLine());
-			if(marks<0) 
-				break;
-			markslist.add(marks);
-		}
-		report.setStudentDetails(name, age, markslist);
-		System.out.println("Enter Address: ");
-		String houseNo=br.readLine();
-		String streetname=br.readLine();
-		String cityname=br.readLine();
-		String statename=br.readLine();
-		int zipcode=Integer.parseInt(br.readLine());
-		report.setAddressForStudent(houseNo, streetname, cityname, statename, zipcode);
-		
-		System.out.println("Enter Faculty Name:");
+
+		ArrayList<String> subjectcodelist = new ArrayList<String>();
 		ArrayList<String> facultynamelist = new ArrayList<String>();
-		
-		while(true) {
-			String faculty=br.readLine();
-			if(faculty.equals("stop")) 
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		String subjectcode = "";
+		while (true) {
+			System.out.println("Enter Subject Code - Faculty Name:");
+			subjectcode = br.readLine();
+			if (subjectcode.equalsIgnoreCase("stop"))
 				break;
-			facultynamelist.add(faculty);
+
+			if (getCurriculumSem().getSubjectCodeListCurriculum().contains(subjectcode)) {
+				subjectcodelist.add(subjectcode);
+				System.out.println("Enter Faculty Name:");
+				String faculty = br.readLine();
+				facultynamelist.add(faculty);
+			} else {
+				System.out.println("Given Subject Code doesn't exist");
+			}
 		}
+		sem.setSubjectcode(subjectcodelist);
+		sem.setFacultyNameList(facultynamelist);
+		
+	}
+
+	public void setStudent() throws IOException {
+
+	
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		ArrayList<Integer> markslist = new ArrayList<Integer>();
+		String name ="";
+		while (true) {
+			
+			System.out.println("Student Details:");
+			System.out.println("Enter Name");
+			name = br.readLine();
+			if (name.equalsIgnoreCase("stop"))
+				break;
+			System.out.println("Enter Age");
+			int age = Integer.parseInt(br.readLine());
+
+			int marks = 0;
+			System.out.println("Enter marks");
+
+			for (int i = 0; i < getSemester().getSubjectcode().size(); i++) {
+				marks = Integer.parseInt(br.readLine());
+				if (marks < 0)
+					break;
+				markslist.add(marks);
+			}
+			setStudentDetails(name, age, markslist);
+			System.out.println("Enter Address: ");
+			String houseNo = br.readLine();
+			String streetname = br.readLine();
+			String cityname = br.readLine();
+			String statename = br.readLine();
+			int zipcode = Integer.parseInt(br.readLine());
+			setAddressForStudent(houseNo, streetname, cityname, statename, zipcode);
+		}
+	}
+
+	public static void main(String[] args) throws IOException {
+
+		Reportcard report = new Reportcard();
+		ArrayList<Student> studentlist = new ArrayList<Student>();
+
+		report.setCurriculumSemDetails();
+
+		report.setSemester();
+		
+		report.setStudent();
 		
 		studentlist.add(report.getStudent());
-		
-		report.setSemesterForStudent(subjectnamelistcurriculum, subjectcodelistcurriculum, facultynamelist,maxmarkslist);
-		
-		report.studDetails();
-		
-		System.out.println("Enter subject Code:");
-		String subcode=br.readLine();
-
-		if(sem.getSubjectcode().contains(subcode)){
-			System.out.println("Entered code " +subcode+ " exists in curriculumsemlist \n");
-			System.out.println("Subject Name \t Subject Code \t Max Marks");
-			for(int i=0;i<report.getStudent().getSemester().getCurriculumSem().getSubjectCodeListCurriculum().size();i++) {
-				if(subcode.equals(subjectcodelistcurriculum.get(i)))
-				System.out.println(report.getStudent().getSemester().getCurriculumSem().getSubjectNameListCurriculum().get(i)+"\t"+report.getStudent().getSemester().getCurriculumSem().getSubjectCodeListCurriculum().get(i)+"\t"+report.getStudent().getSemester().getCurriculumSem().getMaxMarksList().get(i));
-				else 
-					System.out.println("Error");
-					break;
-			}
 			
-		}
-	
+		report.studDetails();
 	}
-	
-}		
 
-
-		
-		//System.out.println("Enter Subject Names");
-		//String 
-		
-		
-		/*//Displaying for 5 students
-		for(int i=0;i<5;i++) {
-			report.setAddressForStudent("52" +i, "MVP" +i ,"VZM"+i,"AP"+i,530002);
-			ArrayList<String> cur= new ArrayList<String>();
-			cur.add("CSE");
-			cur.add("IT");
-			report.setCuricculumForStudent(cur,"Simon"+i,5);
-			ArrayList<Integer> marks=new ArrayList<Integer>();
-			marks.add(3);
-			marks.add(4);
-			report.setStudentDetails("Divya"+i,28,marks);
-			studentlist.add(report.getStudent());
-			report.studDetails();
-		}*/
-		
-		
-		/*ArrayList<String> subjectnamelistcurriculum = new ArrayList<String>();
-		subjectnamelistcurriculum.add("English");
-		subjectnamelistcurriculum.add("Mathematics");
-		subjectnamelistcurriculum.add("Social");
-		subjectnamelistcurriculum.add("Computers");
-		
-		
-		ArrayList<String> subjectcodelistcurriculum = new ArrayList<String>();
-		subjectcodelistcurriculum.add("001");
-		subjectcodelistcurriculum.add("002");
-		subjectcodelistcurriculum.add("003");
-		subjectcodelistcurriculum.add("004");
-		
-		ArrayList<String> facultynamelist = new ArrayList<String>();
-		facultynamelist.add("P");
-		facultynamelist.add("Q");
-		facultynamelist.add("R");
-		facultynamelist.add("S");*/
-		
-		
-
+}
