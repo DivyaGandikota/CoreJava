@@ -2,6 +2,9 @@ package classes;
 
 import java.util.ArrayList;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import pojos.Aeroplane;
 import pojos.Passenger;
 
@@ -13,6 +16,8 @@ public class Airport {
 	private ArrayList<String> terminals;
 	private ArrayList<Aeroplane> aeroplanes;
 	private ArrayList<Passenger> passengers;
+	
+	private static final Logger LOGGER=LogManager.getLogger(Airport.class.getName());
 	
 	public Airport() {
 		aeroplanes=new ArrayList<Aeroplane>();
@@ -72,6 +77,8 @@ public class Airport {
 		passenger.setBookingNo(bookingNo);
 		
 		passengers.add(passenger);
+	//	System.out.println(passenger);
+		LOGGER.info(passenger);
 	}
 	public void addAeroplane(String airlineName,String airlineNo,String terminal,String gate,int seats,int crew,String status,String timeOfDelay,String arrivalCity,String departureCity) {
 	
@@ -89,6 +96,8 @@ public class Airport {
 		aeroplane.setDepartureCity(departureCity);
 		
 		aeroplanes.add(aeroplane);
+	//	System.out.println(aeroplane);
+		LOGGER.info(aeroplane);
 	}
 	public Passenger getPassengerByName(String name) {
 		for(int i=0;i<passengers.size();i++) {
@@ -97,7 +106,8 @@ public class Airport {
 				return passengers.get(i);
 			}
 		}
-		System.out.println("No Passenger");
+		LOGGER.info("No Passenger");
+		//System.out.println("No Passenger");
 		return null;
 	}
 	public Aeroplane getAeroplaneByAirlineName(String airlineName) {
@@ -107,7 +117,8 @@ public class Airport {
 				return aeroplanes.get(i);
 			}
 		}
-		System.out.println("No Aeroplane");
+		LOGGER.info("No Aeroplane");
+		//System.out.println("No Aeroplane");
 		return null;
 	}
 	public Aeroplane getAeroplaneByAirlineNo(String airlineNo) {
@@ -116,17 +127,19 @@ public class Airport {
 				return aeroplanes.get(i);
 			}
 		}
-		System.out.println("No Airline Number in Aeroplane");
+		LOGGER.info("No Airline Number in Aeroplane");
+		//System.out.println("No Airline Number in Aeroplane");
 		return null;
 	}
 	public void getPassengerAeroplaneDetails(String name) {
 		
 		Passenger passenger = getPassengerByName(name);
-		System.out.println(passenger);
+		//System.out.println(passenger);
+		LOGGER.info(passenger);
 
 		Aeroplane aeroplane=getAeroplaneByAirlineNo(passenger.getAirlineNo());
-		System.out.println(aeroplane);
-		
+		//System.out.println(aeroplane);
+		LOGGER.info(aeroplane);
 	}
 	public void getAllAeroplanes() {
 		for(int i=0;i<aeroplanes.size();i++) {
@@ -136,11 +149,13 @@ public class Airport {
 	public String removeAirline(String airlineName) {
 		for(int i=0;i<=aeroplanes.size();i++) {
 			if(aeroplanes.get(i).getAirlineName().equalsIgnoreCase(airlineName)){
-				System.out.println("Removed: "+aeroplanes.remove(i).getAirlineName());
+			//	System.out.println("Removed: "+aeroplanes.remove(i).getAirlineName());
+				LOGGER.info("Removed: "+aeroplanes.remove(i).getAirlineName());
 				return "Removed";
 			}
 		}
-		System.out.println("No Airlines in list");
+		//System.out.println("No Airlines in list");
+		LOGGER.info("No Airlines in list");
 		return null;
 	}
 }
