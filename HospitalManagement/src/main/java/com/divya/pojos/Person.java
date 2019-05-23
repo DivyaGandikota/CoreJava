@@ -1,4 +1,4 @@
-package pojos;
+package com.divya.pojos;
 
 public class Person {
 

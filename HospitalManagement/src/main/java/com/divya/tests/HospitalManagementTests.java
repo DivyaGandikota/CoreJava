@@ -1,6 +1,6 @@
-package tests;
+package com.divya.tests;
 
-import classes.HospitalManagement;
+import com.divya.classes.HospitalManagement;
 
 public class HospitalManagementTests {
 	
