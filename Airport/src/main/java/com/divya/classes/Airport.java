@@ -1,12 +1,12 @@
-package classes;
+package com.divya.classes;
 
 import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import pojos.Aeroplane;
-import pojos.Passenger;
+import com.divya.pojos.Aeroplane;
+import com.divya.pojos.Passenger;
 
 public class Airport {
 

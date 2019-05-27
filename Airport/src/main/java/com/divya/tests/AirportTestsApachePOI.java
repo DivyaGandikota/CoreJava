@@ -1,4 +1,4 @@
-package tests;
+package com.divya.tests;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import classes.Airport;
+import com.divya.classes.Airport;
 
 public class AirportTestsApachePOI {
 
@@ -23,7 +23,9 @@ public class AirportTestsApachePOI {
 		
 		Airport airport = new Airport();
 		
-		File f = new File(".//src//files//Database.xlsx");
+	//	File f = new File(".//src//files//Database.xlsx");
+		File f = new File("resources/Database.xlsx");
+
 		XSSFWorkbook wb= new XSSFWorkbook(f);
 
 		LOGGER.info("In AirportTestsApachePOI");

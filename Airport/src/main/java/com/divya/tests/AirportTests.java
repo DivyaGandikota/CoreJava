@@ -1,6 +1,6 @@
-package tests;
+package com.divya.tests;
 
-import classes.Airport;
+import com.divya.classes.Airport;
 
 public class AirportTests {
 
