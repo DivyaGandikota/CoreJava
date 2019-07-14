@@ -1,4 +1,4 @@
-package classes;
+package com.divya.classes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,8 +6,8 @@ import java.util.HashMap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import pojos.Passenger;
-import pojos.Ticket;
+import com.divya.pojos.Passenger;
+import com.divya.pojos.Ticket;
 
 public class Route {
 

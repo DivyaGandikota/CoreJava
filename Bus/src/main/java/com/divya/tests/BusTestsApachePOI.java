@@ -1,4 +1,4 @@
-package tests;
+package com.divya.tests;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import classes.Route;
+import com.divya.classes.Route;
 
 public class BusTestsApachePOI {
 
@@ -21,7 +21,7 @@ public class BusTestsApachePOI {
 		LOGGER.info("----------------------------------------");
 		Route tests = new Route();
 
-		File f = new File(".//src//files//Database.xlsx");
+		File f = new File("resources/Database.xlsx");
 		XSSFWorkbook wb= new XSSFWorkbook(f);
 		
 		HashMap<String, String> passenger;

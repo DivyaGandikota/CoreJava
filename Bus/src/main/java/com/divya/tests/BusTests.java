@@ -1,6 +1,6 @@
-package tests;
+package com.divya.tests;
 
-import classes.Route;
+import com.divya.classes.Route;
 
 public class BusTests {
 
